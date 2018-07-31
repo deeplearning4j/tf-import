@@ -30,7 +30,7 @@ def train():
     with tf.Session() as sess:
         keras.backend.set_session(sess)
         model = get_model(True)
-        model.fit(x_train, y_train, epochs=1)
+        model.fit(x_train, y_train, epochs=5)
         model.evaluate(x_train, y_train)
         global weights
         weights = model.get_weights()

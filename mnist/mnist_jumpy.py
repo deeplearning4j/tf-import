@@ -1,8 +1,21 @@
+from scipy import ndimage
 import jumpy as jp
 import numpy as np
+import os
 
 
-print(__file__)
+path = os.path.dirname(os.path.abspath(__file__))
 
+# load tensorflow model
+tf_model = jp.TFModel(path + '/mnist.pb')
 
-tf_model = jp.TFModel('mnist.pb')
+# load jpg to numpy array
+image = ndimage.imread(path + '/img (1).jpg').reshape((1, 28, 28))
+
+# inference - uses nd4j
+prediction = tf_model(image)  # prediction is a jumpy array
+
+# get label from predction using argmax
+label = jp.argmax(prediction.reshape((10,)))
+
+print(label)
