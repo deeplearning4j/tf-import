@@ -11,7 +11,9 @@ x_test, y_test = test_data
 x_train = x_train / 255.0
 x_test  = x_test / 255.0
 
+
 weights = None
+
 
 def get_model(training):
     model = Sequential()
@@ -36,6 +38,7 @@ def train():
         weights = model.get_weights()
 
 def save():
+    # save model to a protobuff
     with tf.Session() as sess:
         keras.backend.set_session(sess)
         model = get_model(False)
