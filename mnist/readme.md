@@ -57,4 +57,4 @@ int label = Nd4j.argMax(prediction.reshape(10)).getInt(0);
 We use jumpy to access Nd4j functionality from python
 
 See [mnist_jumpy.py](mnist_jumpy.py)
-```
+
