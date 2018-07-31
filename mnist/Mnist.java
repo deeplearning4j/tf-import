@@ -52,6 +52,7 @@ public class Mnist{
         return Nd4j.argMax(prediction.reshape(10)).getInt(0);
     }
     public static void main(){
+        loadModel("mnist.pb");
         for(int i = 1; i < 11; i++){
             String file = "images/img (%d).jpg";
             file = String.format(file, i);
