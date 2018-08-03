@@ -20,10 +20,12 @@ public class Mnist{
     }
 
     public static INDArray predict(INDArray arr){
-        INDArray batchedArr = Nd4j.expandDims(arr, 0);
+        //INDArray batchedArr = Nd4j.expandDims(arr, 0);
+        arr = Nd4j.pile(arr, arr);
+
         sd.associateArrayWithVariable(batchedArr, sd.variables().get(0));
         INDArray out = sd.execAndEndResult();
-        return Nd4j.squeeze(out, 0);
+        return Nd4j.get(NDArrayIndex.point(0);
     }
 
     public static INDArray predictBatch(INDArray arr){
