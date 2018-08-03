@@ -23,7 +23,7 @@ public class Mnist{
         //INDArray batchedArr = Nd4j.expandDims(arr, 0);
         arr = Nd4j.pile(arr, arr);
 
-        sd.associateArrayWithVariable(batchedArr, sd.variables().get(0));
+        sd.associateArrayWithVariable(arr, sd.variables().get(0));
         INDArray out = sd.execAndEndResult();
         return Nd4j.get(NDArrayIndex.point(0);
     }
